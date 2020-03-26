@@ -7,9 +7,8 @@
 package edu.eci.arsw.airportsfinder.controllers;
 
 import edu.eci.arsw.airportsfinder.model.Airport;
-import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
-import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
-import edu.eci.arsw.blueprints.services.BlueprintsServices;
+import edu.eci.arsw.airportsfinder.persistence.AirportNotFoundException;
+import edu.eci.arsw.airportsfinder.services.AirportsFinderServices;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,20 +22,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author hcadavid
+ * @author Ricardo Martinez
  */
 @RestController
-@RequestMapping(value = "/blueprints")
+@RequestMapping(value = "/Airports")
 public class AirportFinderAPIController {
-    @Autowired
-    AirporFinderServices afs = null;
 
+    @Autowired
+    AirportsFinderServices afs = null;
+    
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> GetAllBlueprintFilter(){
+    public ResponseEntity<?> GetAllAirports(){
         try {
-            return new ResponseEntity<>(bps.getAllBlueprints(),HttpStatus.ACCEPTED);
-        } catch (BlueprintNotFoundException e) {
+            return new ResponseEntity<>(afs.getAllAirports(),HttpStatus.ACCEPTED);
+        } catch (AirportNotFoundException e) {
             Logger.getLogger(AirportFinderAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
         }
     }
+}
