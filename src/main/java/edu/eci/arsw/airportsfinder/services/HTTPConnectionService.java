@@ -1,15 +1,16 @@
 package edu.eci.arsw.airportsfinder.services;
 
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import org.springframework.stereotype.Service;
-import edu.eci.arsw.airportsfinder.persistence.AirportNotFoundException;
-import edu.eci.arsw.airportsfinder.model.Airport;
+
 
 /**
  * @author Ricardo Martinez
  */
-@Service
-public class HTTPConnectionService {
-
+public interface HTTPConnectionService {
 
 }

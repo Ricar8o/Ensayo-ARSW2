@@ -11,6 +11,11 @@ package edu.eci.arsw.airportsfinder.persistence;
  */
 public class AirportNotFoundException extends Exception{
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 3135806385913115480L;
+
     public AirportNotFoundException(String message) {
         super(message);
     }
